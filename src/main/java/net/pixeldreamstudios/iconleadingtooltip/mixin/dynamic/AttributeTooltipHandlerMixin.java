@@ -20,18 +20,16 @@ import org.spongepowered.asm.mixin.injection.callback.CallbackInfoReturnable;
 public abstract class AttributeTooltipHandlerMixin {
     private static final ThreadLocal<String> ILT$ICON = new ThreadLocal<>();
 
-    @Redirect(
+    @ModifyArg(
             method = "processBaseModifiers",
             at = @At(
                     value = "INVOKE",
                     target = "Lnet/minecraft/text/Text;literal(Ljava/lang/String;)Lnet/minecraft/text/MutableText;"
-            )
+            ),
+            index = 0
     )
-    private static MutableText ilt$removeLeadingBaseSpace(String content) {
-        if (" ".equals(content)) {
-            return Text.empty();
-        }
-        return Text.literal(content);
+    private static String ilt$removeLeadingBaseSpace(String content) {
+        return " ".equals(content) ? "" : content;
     }
 
     @ModifyArg(

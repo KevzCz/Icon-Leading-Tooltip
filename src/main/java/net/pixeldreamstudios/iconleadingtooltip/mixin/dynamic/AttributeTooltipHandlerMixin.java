@@ -1,6 +1,7 @@
 // net/pixeldreamstudios/iconleadingtooltip/mixin/dynamic/AttributeTooltipHandlerMixin.java
 package net.pixeldreamstudios.iconleadingtooltip.mixin.dynamic;
 
+import dev.muon.dynamictooltips.handlers.AttributeTooltipHandler;
 import net.minecraft.entity.attribute.EntityAttribute;
 import net.minecraft.entity.attribute.EntityAttributeModifier;
 import net.minecraft.text.MutableText;
@@ -16,7 +17,7 @@ import org.spongepowered.asm.mixin.injection.Redirect;
 import org.spongepowered.asm.mixin.injection.callback.CallbackInfoReturnable;
 
 @Pseudo
-@Mixin(targets = "dev.muon.dynamictooltips.handlers.AttributeTooltipHandler")
+@Mixin(AttributeTooltipHandler.class)
 public abstract class AttributeTooltipHandlerMixin {
     private static final ThreadLocal<String> ILT$ICON = new ThreadLocal<>();
 

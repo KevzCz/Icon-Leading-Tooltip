@@ -1,6 +1,8 @@
 package net.pixeldreamstudios.iconleadingtooltip.mixin.bettercombat;
 
 import net.bettercombat.client.WeaponAttributeTooltip;
+import net.fabricmc.api.EnvType;
+import net.fabricmc.api.Environment;
 import net.fabricmc.loader.api.FabricLoader;
 import net.minecraft.component.Component;
 import net.minecraft.item.ItemStack;
@@ -12,6 +14,7 @@ import org.spongepowered.asm.mixin.injection.callback.CallbackInfo;
 
 import java.util.List;
 @Pseudo
+@Environment(EnvType.CLIENT)
 @Mixin(WeaponAttributeTooltip.class)
 public class WeaponAttributeTooltipMixin {
 

@@ -7,8 +7,6 @@ import org.slf4j.LoggerFactory;
 
 public class IconLeadingTooltip implements ModInitializer {
 	public static final String MOD_ID = "icon-leading-tooltip";
-
-
 	public static final Logger LOGGER = LoggerFactory.getLogger(MOD_ID);
 
 	@Override

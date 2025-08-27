@@ -3,6 +3,8 @@ package net.pixeldreamstudios.iconleadingtooltip.client;
 import net.bettercombat.api.WeaponAttributes;
 import net.bettercombat.logic.EntityAttributeHelper;
 import net.bettercombat.logic.WeaponRegistry;
+import net.fabricmc.api.EnvType;
+import net.fabricmc.api.Environment;
 import net.fabricmc.loader.api.FabricLoader;
 import net.minecraft.client.network.ClientPlayerEntity;
 import net.minecraft.component.type.AttributeModifierSlot;
@@ -24,7 +26,7 @@ import net.pixeldreamstudios.iconleadingtooltip.util.IconLeadingUtil;
 import java.util.ArrayList;
 import java.util.Comparator;
 import java.util.List;
-
+@Environment(EnvType.CLIENT)
 public final class BcAttackRangeTooltip {
 
     private BcAttackRangeTooltip() {}

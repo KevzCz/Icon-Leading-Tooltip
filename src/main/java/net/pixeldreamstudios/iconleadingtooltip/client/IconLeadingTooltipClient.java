@@ -1,6 +1,8 @@
 package net.pixeldreamstudios.iconleadingtooltip.client;
 
 import net.fabricmc.api.ClientModInitializer;
+import net.fabricmc.api.EnvType;
+import net.fabricmc.api.Environment;
 import net.fabricmc.fabric.api.client.item.v1.ItemTooltipCallback;
 import net.fabricmc.loader.api.FabricLoader;
 import net.minecraft.client.MinecraftClient;
@@ -11,7 +13,7 @@ import net.minecraft.item.tooltip.TooltipType;
 import net.minecraft.text.Text;
 
 import java.util.List;
-
+@Environment(EnvType.CLIENT)
 public final class IconLeadingTooltipClient implements ClientModInitializer {
 
     @Override

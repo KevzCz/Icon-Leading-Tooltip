@@ -13,7 +13,7 @@
 	},
 	"license": "LGPL-3.0",
 	"icon": "assets/icon-leading-tooltip/icon.png",
-	"environment": "*",
+	"environment": "client",
 	"entrypoints": {
 		"main": [
 			"net.pixeldreamstudios.iconleadingtooltip.IconLeadingTooltip"

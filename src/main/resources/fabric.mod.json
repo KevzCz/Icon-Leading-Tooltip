@@ -17,11 +17,15 @@
 	"entrypoints": {
 		"main": [
 			"net.pixeldreamstudios.iconleadingtooltip.IconLeadingTooltip"
+		],
+		"client": [
+			"net.pixeldreamstudios.iconleadingtooltip.client.IconLeadingTooltipClient"
 		]
 	},
 	"mixins": [
 		"icon-leading-tooltip.mixins.json",
-		"icon-leading-tooltip.dynamic.mixins.json"
+		"icon-leading-tooltip.dynamic.mixins.json",
+		"icon-leading-tooltip.bettercombat.mixins.json"
 	],
 	"depends": {
 		"fabricloader": ">=0.16.0",

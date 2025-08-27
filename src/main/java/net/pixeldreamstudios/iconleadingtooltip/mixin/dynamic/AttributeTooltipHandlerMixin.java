@@ -13,7 +13,6 @@ import org.spongepowered.asm.mixin.Pseudo;
 import org.spongepowered.asm.mixin.injection.At;
 import org.spongepowered.asm.mixin.injection.Inject;
 import org.spongepowered.asm.mixin.injection.ModifyArg;
-import org.spongepowered.asm.mixin.injection.Redirect;
 import org.spongepowered.asm.mixin.injection.callback.CallbackInfoReturnable;
 
 @Pseudo
@@ -39,7 +38,7 @@ public abstract class AttributeTooltipHandlerMixin {
                     value = "INVOKE",
                     target = "Lnet/minecraft/text/Text;translatable(Ljava/lang/String;[Ljava/lang/Object;)Lnet/minecraft/text/MutableText;"
             ),
-            index = 1 // Object[] varargs
+            index = 1
     )
     private static Object[] ilt$stripIconFromAttrArg_Mod(Object[] args) {
         if (args != null && args.length >= 2 && args[1] instanceof Text attrText) {
@@ -48,7 +47,6 @@ public abstract class AttributeTooltipHandlerMixin {
             if (span[0] >= 0) {
                 String icon = raw.substring(span[0], span[1]);
                 ILT$ICON.set(icon);
-
                 String restRaw = raw.substring(0, span[0]) + raw.substring(span[1]);
                 String rest = IconLeadingUtil.stripSectionCodes(restRaw).replaceFirst("^\\s+", "");
                 args[1] = Text.literal(rest);
@@ -71,11 +69,8 @@ public abstract class AttributeTooltipHandlerMixin {
         if (icon != null && !icon.isEmpty()) {
             MutableText ret = cir.getReturnValue();
             boolean needsSpace = ret.getString().isEmpty() || !ret.getString().startsWith(" ");
-
-            MutableText container = Text.empty(); // neutral root so later styling won't recolor children
-            MutableText iconPart = Text.literal(icon)
-                    .styled(s -> s.withColor(0xFFFFFF));   // force white; won’t inherit parent color
-
+            MutableText container = Text.empty();
+            MutableText iconPart = Text.literal(icon).styled(s -> s.withColor(0xFFFFFF));
             if (needsSpace) {
                 container.append(iconPart).append(Text.literal(" ")).append(ret);
             } else {
@@ -85,9 +80,8 @@ public abstract class AttributeTooltipHandlerMixin {
         }
     }
 
-
     @ModifyArg(
-            method = "createBaseComponent(Lnet/minecraft/entity/attribute/EntityAttribute;DDB)Lnet/minecraft/text/MutableText;",
+            method = "createBaseComponent(Lnet/minecraft/entity/attribute/EntityAttribute;DDZ)Lnet/minecraft/text/MutableText;",
             at = @At(
                     value = "INVOKE",
                     target = "Lnet/minecraft/text/Text;translatable(Ljava/lang/String;[Ljava/lang/Object;)Lnet/minecraft/text/MutableText;"
@@ -101,7 +95,6 @@ public abstract class AttributeTooltipHandlerMixin {
             if (span[0] >= 0) {
                 String icon = raw.substring(span[0], span[1]);
                 ILT$ICON.set(icon);
-
                 String restRaw = raw.substring(0, span[0]) + raw.substring(span[1]);
                 String rest = IconLeadingUtil.stripSectionCodes(restRaw).replaceFirst("^\\s+", "");
                 args[1] = Text.literal(rest);
@@ -113,7 +106,7 @@ public abstract class AttributeTooltipHandlerMixin {
     }
 
     @Inject(
-            method = "createBaseComponent(Lnet/minecraft/entity/attribute/EntityAttribute;DDB)Lnet/minecraft/text/MutableText;",
+            method = "createBaseComponent(Lnet/minecraft/entity/attribute/EntityAttribute;DDZ)Lnet/minecraft/text/MutableText;",
             at = @At("RETURN"),
             cancellable = true
     )
@@ -124,11 +117,8 @@ public abstract class AttributeTooltipHandlerMixin {
         if (icon != null && !icon.isEmpty()) {
             MutableText ret = cir.getReturnValue();
             boolean needsSpace = ret.getString().isEmpty() || !ret.getString().startsWith(" ");
-
-            MutableText container = Text.empty(); // neutral root so later styling won't recolor children
-            MutableText iconPart = Text.literal(icon)
-                    .styled(s -> s.withColor(0xFFFFFF));   // force white; won’t inherit parent color
-
+            MutableText container = Text.empty();
+            MutableText iconPart = Text.literal(icon).styled(s -> s.withColor(0xFFFFFF));
             if (needsSpace) {
                 container.append(iconPart).append(Text.literal(" ")).append(ret);
             } else {

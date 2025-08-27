@@ -1,0 +1,14 @@
+{
+	"required": true,
+	"package": "net.pixeldreamstudios.iconleadingtooltip.mixin.bettercombat",
+	"compatibilityLevel": "JAVA_21",
+	"mixins": [
+		"WeaponAttributeTooltipMixin"
+	],
+	"injectors": {
+		"defaultRequire": 1
+	},
+	"overwrites": {
+		"requireAnnotations": true
+	}
+}

@@ -8,7 +8,6 @@ import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 import net.minecraft.component.type.AttributeModifiersComponent;
-import net.minecraft.screen.ScreenTexts;
 import net.minecraft.registry.entry.RegistryEntry;
 import net.minecraft.text.MutableText;
 import net.minecraft.text.Text;
@@ -78,7 +77,7 @@ public abstract class ItemStackMixin {
 			).formatted(Formatting.DARK_GREEN);
 
 			textConsumer.accept(
-					ScreenTexts.space()
+					Text.literal("")
 							.append(Text.literal(icon + " "))
 							.append(body)
 			);

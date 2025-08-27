@@ -14,7 +14,14 @@ repositories {
 	flatDir {
 		dirs 'lib'
 	}
-	maven { url "https://api.modrinth.com/maven" }
+	maven {
+		name = "TerraformersMC"
+		url = "https://maven.terraformersmc.com/"
+	}
+	maven {
+		name = "Ladysnake Libs"
+		url = 'https://maven.ladysnake.org/releases'
+	}
 }
 
 dependencies {
@@ -25,6 +32,7 @@ dependencies {
 
 	modCompileOnly name: 'dynamic-tooltips-0.5.0'
 	modCompileOnly name: 'bettercombat-fabric-2.2.4+1.21.1'
+	modCompileOnly "dev.emi:trinkets:${trinkets_version}"
 	modImplementation "net.fabricmc.fabric-api:fabric-api:${project.fabric_version}"
 	
 }

@@ -25,7 +25,8 @@
 	"mixins": [
 		"icon-leading-tooltip.mixins.json",
 		"icon-leading-tooltip.dynamic.mixins.json",
-		"icon-leading-tooltip.bettercombat.mixins.json"
+		"icon-leading-tooltip.bettercombat.mixins.json",
+		"icon-leading-tooltip.trinkets.mixins.json"
 	],
 	"depends": {
 		"fabricloader": ">=0.16.0",

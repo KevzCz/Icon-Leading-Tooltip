@@ -3,7 +3,7 @@
 	"package": "net.pixeldreamstudios.iconleadingtooltip.mixin.trinkets",
 	"compatibilityLevel": "JAVA_21",
 	"plugin": "net.pixeldreamstudios.iconleadingtooltip.mixin.plugin.TrinketsMixinPlugin",
-	"mixins": [],
+	"mixins": ["TrinketsTooltipRedirectMixin"],
 	"injectors": {
 		"defaultRequire": 1
 	},

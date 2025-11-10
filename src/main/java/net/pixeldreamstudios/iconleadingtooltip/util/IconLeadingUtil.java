@@ -52,8 +52,20 @@ public final class IconLeadingUtil {
             }
 
             if (isIconGlyph(cp)) {
-
                 int actualStart = (formattingStart >= 0) ? formattingStart : i;
+
+//                String iconChar = new String(Character.toChars(cp));
+//                String extractedSpan = s.substring(actualStart, i + len);
+//
+//                System.out.println("=== Icon Found ===");
+//                System.out.println("Icon codepoint: U+" + Integer.toHexString(cp).toUpperCase());
+//                System.out.println("Icon character: '" + iconChar + "'");
+//                System.out.println("Position in string: " + i);
+//                System.out.println("Span start: " + actualStart + ", end: " + (i + len));
+//                System.out.println("Extracted span: \"" + extractedSpan + "\"");
+//                System.out.println("Full string: \"" + s + "\"");
+//                System.out.println("==================");
+
                 return new int[]{ actualStart, i + len };
             }
 

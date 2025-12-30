@@ -1,0 +1,16 @@
+{
+  "required": false,
+  "package":  "net.pixeldreamstudios.iconleadingtooltip.fabric.mixin.dynamic",
+  "compatibilityLevel": "JAVA_21",
+  "mixins": [
+    "AttributeTooltipHandlerMixin",
+    "AttackRangeTooltipHandlerMixin",
+    "BlockRangeTooltipHandlerMixin"
+  ],
+  "injectors": {
+    "defaultRequire": 1
+  },
+  "overwrites": {
+    "requireAnnotations": true
+  }
+}

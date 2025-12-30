@@ -1,0 +1,41 @@
+modLoader = "javafml"
+loaderVersion = "[4,)"
+#issueTrackerURL = ""
+license = "LGPL-3.0"
+
+[[mods]]
+modId = "icon_leading_tooltip"
+version = "${version}"
+displayName = "Icon Leading Tooltip"
+authors = "KevzCz"
+description = '''
+Places icons before attribute stats!!
+'''
+logoFile = "assets/icon-leading-tooltip/icon.png"
+
+[[dependencies.icon-leading-tooltip]]
+modId = "neoforge"
+type = "required"
+versionRange = "[21.1,)"
+ordering = "NONE"
+side = "BOTH"
+
+[[dependencies.icon-leading-tooltip]]
+modId = "minecraft"
+type = "required"
+versionRange = "[1.21.1,)"
+ordering = "NONE"
+side = "BOTH"
+
+[[dependencies.icon-leading-tooltip]]
+modId = "architectury"
+type = "required"
+versionRange = "[13.0.8,)"
+ordering = "AFTER"
+side = "BOTH"
+
+[[mixins]]
+config = "icon-leading-tooltip.bettercombat.mixins.json"
+side = "BOTH"
+
+

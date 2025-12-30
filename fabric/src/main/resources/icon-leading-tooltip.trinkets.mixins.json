@@ -1,0 +1,15 @@
+{
+  "required": false,
+  "package": "net.pixeldreamstudios.iconleadingtooltip.fabric.mixin.trinkets",
+  "compatibilityLevel":  "JAVA_21",
+  "plugin": "net.pixeldreamstudios.iconleadingtooltip.fabric.mixin.trinkets.TrinketsMixinPlugin",
+  "mixins": [
+    "TrinketsTooltipRedirectMixin"
+  ],
+  "injectors": {
+    "defaultRequire": 1
+  },
+  "overwrites": {
+    "requireAnnotations": true
+  }
+}

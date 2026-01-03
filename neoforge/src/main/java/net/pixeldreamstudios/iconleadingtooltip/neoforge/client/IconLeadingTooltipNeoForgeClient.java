@@ -1,8 +1,5 @@
 package net.pixeldreamstudios.iconleadingtooltip.neoforge.client;
 
-import dev.architectury.platform.Platform;
-import net.minecraft.client.Minecraft;
-import net.minecraft.client.player.LocalPlayer;
 import net.minecraft.network.chat.Component;
 import net.minecraft.network.chat.MutableComponent;
 import net.minecraft.world.item.ItemStack;
@@ -12,7 +9,6 @@ import net.neoforged.bus.api.SubscribeEvent;
 import net.neoforged.fml.common.EventBusSubscriber;
 import net.neoforged.neoforge.event.entity.player.ItemTooltipEvent;
 import net.pixeldreamstudios.iconleadingtooltip.IconLeadingTooltip;
-import net.pixeldreamstudios.iconleadingtooltip.client.BcAttackRangeTooltip;
 import net.pixeldreamstudios.iconleadingtooltip.util.IconLeadingUtil;
 
 import java.util.List;
@@ -32,13 +28,6 @@ public final class IconLeadingTooltipNeoForgeClient {
                 tooltip.set(i, transformed);
             }
         }
-
-        if (Platform.isModLoaded("bettercombat")) {
-            LocalPlayer player = Minecraft.getInstance().player;
-            if (player != null) {
-                BcAttackRangeTooltip.append(stack, player, tooltip);
-            }
-        }
     }
 
     private static Component transformLine(Component original) {
@@ -49,7 +38,7 @@ public final class IconLeadingTooltipNeoForgeClient {
             return original;
         }
 
-        if (! isAttributeLine(original)) {
+        if (!  isAttributeLine(original)) {
             return original;
         }
 
@@ -81,7 +70,7 @@ public final class IconLeadingTooltipNeoForgeClient {
             }
         }
 
-        for (Component sibling :  component.getSiblings()) {
+        for (Component sibling :   component.getSiblings()) {
             var siblingContent = sibling.getContents();
             if (siblingContent instanceof net.minecraft.network.chat.contents.TranslatableContents tr) {
                 String key = tr.getKey();

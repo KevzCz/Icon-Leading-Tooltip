@@ -1,0 +1,13 @@
+{
+  "required": false,
+  "package": "net.pixeldreamstudios.iconleadingtooltip.fabric.mixin.trinkets",
+  "compatibilityLevel": "JAVA_17",
+  "minVersion": "0.8",
+  "plugin": "net.pixeldreamstudios.iconleadingtooltip.fabric.mixin.trinkets.TrinketsMixinPlugin",
+  "mixins": [
+    "TrinketsTooltipRedirectMixin"
+  ],
+  "injectors": {
+    "defaultRequire": 1
+  }
+}
